@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modelica by Example 0.2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 17:23-0400\n"
+"POT-Creation-Date: 2014-04-14 10:12-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -231,10 +231,6 @@ msgid ""
 "the equation associated with this example:"
 msgstr ""
 
-#: ../../source/components/components/block_comps.rst:260
-msgid "https://book-preview.herokuapp.com"
-msgstr ""
-
 #: ../../source/components/components/block_comps.rst:264
 msgid ""
 "The following block diagram will solve for the temperature profile, "
@@ -403,3 +399,6 @@ msgid ""
 "implemented with causal components while physical components use acausal "
 "components."
 msgstr ""
+
+#~ msgid "https://book-preview.herokuapp.com"
+#~ msgstr ""

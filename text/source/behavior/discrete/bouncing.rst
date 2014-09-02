@@ -18,7 +18,7 @@ where the time of the event is known *a priori*, a state event depends
 on the solution trajectory.  So we cannot entirely avoid the
 "searching" for the point at which the event occurs.
 
-To see a state even in action, let us consider the behavior of a
+To see a state event in action, let us consider the behavior of a
 bouncing ball bouncing on a flat horizontal surface.  When the ball is
 above the surface, it accelerates due to gravitational forces.  When
 the ball eventually comes in contact with the surface, it bounces off
@@ -78,15 +78,12 @@ following behavior from this model:
 .. plot:: ../plots/BB1.py
    :class: interactive
 
-In this plot, we see that at around 0.48 seconds, the first impact with the
-surface occurs.  This occurs because the condition ``h<0`` first becomes
-true at that moment.  Note that what makes this a state event (unlike
-our example in :ref:`previous cooling examples <cooling-revisited>`) is the
-fact that this conditional expression references continuous variables
-other than ``time``.
-
-.. todo:: link to previous cooling examples not showing up correctly
-do the referenced variables have to be continuous to make a state event?
+In this plot, we see that at around 0.48 seconds, the first impact
+with the surface occurs.  This occurs because the condition ``h<0``
+first becomes true at that moment.  Note that what makes this a state
+event (unlike our example in :ref:`previous cooling examples
+<cooling-revisited>`) is the fact that this conditional expression
+references variables other than ``time``.
 
 As such, the simulation proceeds assuming the ball is in free fall
 until it identifies a solution trajectory where the value of the

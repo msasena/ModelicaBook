@@ -1,6 +1,6 @@
 within ModelicaByExample.Subsystems.LotkaVolterra.Components;
 model TwoSpecies "Lotka-Volterra two species configuration"
-  // Import several component modesl from ModelicaByExample.Components.LotkaVolterra
+  // Import several component models from ModelicaByExample.Components.LotkaVolterra
   import ModelicaByExample.Components.LotkaVolterra.Components.RegionalPopulation;
   import ModelicaByExample.Components.LotkaVolterra.Components.Reproduction;
   import ModelicaByExample.Components.LotkaVolterra.Components.Starvation;
@@ -27,7 +27,6 @@ protected
   Reproduction reproduction(alpha=alpha) "Reproduction of rabbits"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-80,-50})));
   RegionalPopulation fox_population(
       init=RegionalPopulation.InitializationOptions.FixedPopulation,

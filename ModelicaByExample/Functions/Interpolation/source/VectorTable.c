@@ -17,12 +17,12 @@ typedef struct {
 
 void *
 createVectorTable(double *data, size_t np) {
-  VectorTable *table = malloc(sizeof(VectorTable));
+  VectorTable *table = (VectorTable*) malloc(sizeof(VectorTable));
   if (table) {
     /* Allocate memory for data */
-    table->x = malloc(sizeof(double)*np);
+    table->x = (double*) malloc(sizeof(double)*np);
     if (table->x) {
-      table->y = malloc(sizeof(double)*np);
+      table->y = (double*) malloc(sizeof(double)*np);
       if (table->y) {
         /* Copy data into our local array */
         size_t i;
@@ -70,9 +70,11 @@ interpolateVectorTable(void *object, double x) {
 
   ModelicaFormatMessage("Request to compute value of y at %g\n", x);
   if (x<table->x[0])
-    ModelicaFormatError("Requested value of x=%g is below the lower bound of %g\n", x, table->x[0]);
+    ModelicaFormatError("Requested value of x=%g is below the lower bound of %g\n",
+			x, table->x[0]);
   if (x>table->x[table->npoints-1])
-    ModelicaFormatError("Requested value of x=%g is above the upper bound of %g\n", x, table->x[table->npoints-1]);
+    ModelicaFormatError("Requested value of x=%g is above the upper bound of %g\n",
+			x, table->x[table->npoints-1]);
 
   while(x>=table->x[i+1]) i = i + 1;
   while(x<table->x[i]) i = i - 1;

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modelica by Example 0.2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 17:23-0400\n"
+"POT-Creation-Date: 2014-04-14 10:14-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,21 +40,20 @@ msgid ""
 "occur while integrating the underlying equations."
 msgstr ""
 
-#: ../../source/behavior/discrete/switching.rst:28
-msgid ""
-"We can see the voltage response of this model to the switched supply voltage"
-" in the following plot: .. todo:: Source Voltage V needs subscript s, other "
-"plots missing subscripts also"
-msgstr ""
-
-#: ../../source/behavior/discrete/switching.rst:35
+#: ../../source/behavior/discrete/switching.rst:34
 msgid ""
 "Furthermore, we can see the current response for inductor, resistor and "
 "capacitor components in this plot:"
 msgstr ""
 
-#: ../../source/behavior/discrete/switching.rst:41
+#: ../../source/behavior/discrete/switching.rst:40
 msgid ""
 "Hopefully by this point, the basic mechanisms for generating events and "
 "disturbances seem intuitive and familiar."
+msgstr ""
+
+#: ../../source/behavior/discrete/switching.rst:28
+msgid ""
+"We can see the voltage response of this model to the switched supply voltage"
+" in the following plot:"
 msgstr ""

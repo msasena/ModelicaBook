@@ -18,11 +18,10 @@ Consider the following almost trivial model:
    :language: modelica
    :lines: 2-
 
-If we attempt to simulate this model for 5 seconds, we fine that the
+If we attempt to simulate this model for 5 seconds, we find that the
 simulation terminates after about 2 seconds with the following trajectory:
 
 .. plot:: ../plots/Decay1.py
-   :class: interactive
 
 Again, numerical issues creep in.  Even though mathematically it
 should not be possible for the value of ``x`` to drop below zero,
@@ -41,10 +40,9 @@ against evaluating the square root of a negative number, like this:
    :language: modelica
    :lines: 2-
 
-Simulating this model we get the following trajectory[#tol]:
+Simulating this model we get the following trajectory [#tol]_:
 
 .. plot:: ../plots/Decay2.py
-   :class: interactive
 
 Again, the simulation fails.  But why?  It fails for the same reason,
 a numerical exception that results from taking the square root of a
@@ -59,11 +57,14 @@ evaluated if ``x`` is less than zero.  **But this assumption is incorrect.**
 Events and Conditional Expressions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+The Role of Events in Behavior
+******************************
+
 Given the ``if`` expression:
 
 .. code-block:: modelica
 
-    der(x) = if x>=0 sqrt(x) else 0;
+    der(x) = if x>=0 then sqrt(x) else 0;
 
 it is entirely possible that ``sqrt`` will be called with a negative
 argument.  The reason is related to the fact that this is a state
@@ -89,19 +90,8 @@ is negative.
 Most users initially assume that each time ``der(x)`` is evaluated,
 the ``if`` expression is evaluated (specifically the conditional
 expression in the ``if`` expression).  Hopefully the previous
-paragraph has made it clear that this is not the case.  But the
-question remains.  Why?
+paragraph has made it clear that this is not the case.  
 
-The reason has to do with performance.  If the conditional expression
-led to an abrupt change in behavior (like the one we saw in our
-discussion on :ref:`cooling-revisited`) it would cause a variable time
-step integrator to spend an exceptional (and unnecessary) amount of
-time trying to localize the source of the additional integration
-error.  Because the integrator doesn't know *a priori* where the event
-occurs (as with a time event) and it has no way to quickly identify
-the point at which the event occurs, it has no choice but to
-repeatedly re-attempt the integration step until it finds a step size
-where the integration error is tolerable.
 
 This time spent trying and retrying integration steps can be saved
 thanks to the fact that Modelica can extract a so-called "zero
@@ -116,13 +106,13 @@ we had the following ``if`` expression:
 
 The zero crossing function would be :math:`a-b`.  This function is
 chosen because it changes from positive to negative precisely at the
-point where ``a>b``.  
+point where ``a>b``.
 
 Recall our previous equation:
 
 .. code-block:: modelica
 
-    der(x) = if x>=0 sqrt(x) else 0;
+    der(x) = if x>=0 then sqrt(x) else 0;
 
 In this case, the zero crossing function is simply :math:`x` since the
 event occurs when :math:`x` itself crosses zero.
@@ -269,8 +259,95 @@ performance:
 .. plot:: ../plots/Decay5.py
    :class: interactive
 
-.. todo: Smooth operator?
+Speed vs. Accuracy
+^^^^^^^^^^^^^^^^^^
+
+Hopefully the discussion so far has made it clear why it is necessary
+to suppress events in some cases.  But one might reasonably ask, why
+not skip events and just evaluate conditional expressions all the
+time?  So let's take some time to explore this question and explain
+why, on the whole, associated events with conditional expressions is
+very good idea[#Belmon]_.
+
+Without event detection, the integrator will simply step right over
+events.  When this happens, the integrator will miss important changes
+in behavior and this will have a significant impact on the accuracy of
+the simulation.  This is because the accuracy of most integration
+routines is based on assumptions about the continuity of the
+underlying function and its derivatives.  If those assumptions are
+violated, we need to let the integration routines know so they can
+account these changes in behavior.
+
+This is where events come in.  They force the integration to stop at
+the point where a behavior change occurs and then restart again after
+the behavior change has occurred.  The result is greater accuracy but
+at the cost of slower simulations.  Let's look at a concrete example.
+Consider the following simple Modelica model:
+
+.. literalinclude:: /ModelicaByExample/DiscreteBehavior/Accuracy/WithEvents.mo
+   :language: modelica
+   :lines: 2-
+
+Looking at this system, we can see that half the time the derivative
+of ``x`` will be ``2`` and the other half of the time the derivative
+of ``x`` will be ``0``.  So over each of these cycles, the average
+derivative of ``x`` should be ``1``.  This means at the end of each
+cycle, ``x`` and ``y`` should be equal.
+
+If we simulate the ``WithEvents`` model, we get the following results:
+
+.. plot:: ../plots/WE.py
+   :class: interactive
+
+Note how, at the end of each cycle, the trajectories of ``x`` and
+``y`` meet.  This is a visual indication of the accuracy of the
+underlying integration.  Even if we increase the frequency of the
+underlying cycle, we see that this property holds true:
+
+.. plot:: ../plots/WEf.py
+   :class: interactive
+
+However, now let us consider the case where we use exactly the same
+integration parameters but suppress events by using the ``noEvents``
+operator as follows:
+
+.. literalinclude:: /ModelicaByExample/DiscreteBehavior/Accuracy/WithNoEvents.mo
+   :language: modelica
+   :lines: 2-
+
+In this case, the integrator is blind to the changes in behavior.  It
+does its best to integrate accuracy but without explicit knowledge of
+where the behavior changes occur, it will blindly continue using the
+wrong value of the derivative and extrapolate well beyond the change
+in behavior.  If we simulate the ``WithNoEvents`` model, using the
+same integrator settings, we can see how significantly different our
+results will be:
+
+.. plot:: ../plots/WNE.py
+   :class: interactive
+
+Note how quickly the integrator introduces some pretty significant
+error.
+
+.. plot:: ../plots/WNEf.py
+   :class: interactive
+
+The integration settings used in these examples were chosen to
+demonstrate the impact that the ``noEvent`` operator can have on
+accuracy.  However, the settings were admittedly chosen to accentuate
+these differences.  Using more typical settings, the differences in
+the results probably would not have been so dramatic.  Furthermore,
+the impact of using ``noEvent`` are impossible to predict or quantify
+since they will vary significantly from one solver to another.  But
+the underlying point is clear, using the ``noEvent`` operator can have
+a significant impact on accuracy simulation results.
 
 .. [#tol] This model will not always fail.  The failure depends on how
 	  much integration error is introduced and this, in turn,
 	  depends on the numerical tolerances used.
+
+.. [#Belmon] A special thanks to Lionel Belmon for challenging my
+			 original discussion and identifying several
+			 unsubstantiated assumptions on my part.  As a result,
+			 this explanation is much better and includes results to
+			 support the conclusions drawn.

@@ -1,12 +1,19 @@
-.. raw:: latex
-
-   \setcounter{secnumdepth}{-1}
-
 Dedication
-**********
+==========
 
-.. image:: ../_static/Aaron.jpg
-   :align: right
+.. only:: latex
+
+  .. raw:: latex
+
+     \begin{wrapfigure}{r}{0.35\textwidth}
+       \centering
+       \includegraphics[width=0.33\textwidth]{Aaron.jpg}
+     \end{wrapfigure}
+
+.. only:: not latex
+
+  .. image:: /_static/img/Aaron.jpg
+     :align: right
 
 This book started as a Kickstarter project.  The idea of writing a
 book and making it freely available, under a Creative Commons license,
@@ -66,7 +73,3 @@ energies and talents to help society.
     us weep."
 
     -- `Tim Berners-Lee <https://twitter.com/timberners_lee/status/290140454211698689>`_
-
-.. raw:: latex
-
-   \setcounter{secnumdepth}{2}

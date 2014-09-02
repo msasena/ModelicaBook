@@ -36,7 +36,7 @@ Here is a Modelica definition and icon for that interface:
 .. literalinclude:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Sensor.mo
    :language: modelica
 
-.. image:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Sensor.svg
+.. image:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Sensor.*
    :width: 25%
    :align: center
    :alt: Sensor interface
@@ -66,7 +66,7 @@ connector for the stator.  Otherwise, it is very similar to our
 .. literalinclude:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Actuator.mo
    :language: modelica
 
-.. image:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Actuator.svg
+.. image:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Actuator.*
    :width: 25%
    :align: center
    :alt: Actuator interface
@@ -79,7 +79,7 @@ for the "support" side (so it can be "mounted" to something):
 .. literalinclude:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Plant.mo
    :language: modelica
 
-.. image:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Plant.svg
+.. image:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Plant.*
    :width: 25%
    :align: center
    :alt: Plant interface
@@ -89,7 +89,7 @@ Finally, we have the ``Controller`` interface definition:
 .. literalinclude:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Controller.mo
    :language: modelica
 
-.. image:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Controller.svg
+.. image:: /ModelicaByExample/Architectures/SensorComparison/Interfaces/Controller.*
    :width: 25%
    :align: center
    :alt: Controller interface
@@ -132,7 +132,7 @@ subsystems, we are also specifying the locations of the subsystems and
 the paths of the connections.  When rendered, our system architecture
 looks like this:
 
-.. image:: /ModelicaByExample/Architectures/SensorComparison/Examples/SystemArchitecture.svg
+.. image:: /ModelicaByExample/Architectures/SensorComparison/Examples/SystemArchitecture.*
    :width: 100%
    :align: center
    :alt: Top down architecture
@@ -179,7 +179,7 @@ Controller Models
 
 .. literalinclude:: /ModelicaByExample/Architectures/SensorComparison/Implementation/ProportionalController.mo
    :language: modelica
-   :lines: 1-39,55
+   :lines: 1-38,54
 
 .. literalinclude:: /ModelicaByExample/Architectures/SensorComparison/Implementation/PID_Controller.mo
    :language: modelica
@@ -190,7 +190,7 @@ Sensor Models
 
 .. literalinclude:: /ModelicaByExample/Architectures/SensorComparison/Implementation/IdealSensor.mo
    :language: modelica
-   :lines: 1-23,42
+   :lines: 1-22,41
 
 .. literalinclude:: /ModelicaByExample/Architectures/SensorComparison/Implementation/SampleHoldSensor.mo
    :language: modelica
@@ -255,7 +255,7 @@ the :ref:`flat-sensor-system` as well):
 
 Note how, even with an adequate sensor, the controller in our
 ``Variant1`` configuration seems to be converging to the wrong
-steady-state speed.  This is because we are only using a proportional
+steady state speed.  This is because we are only using a proportional
 gain controller.  However, if we extend from the ``Variant1`` model
 and add a PID controller and a more realistic actuator with
 limitations on the amount of torque it can supply, *i.e.*,

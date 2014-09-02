@@ -58,12 +58,8 @@ example:
 
     T = T0 "Specify initial value for T" annotation(...);
 
-.. todo:: where does it come if the textual description is not present?
-	  if it's always just before the ";", then just say it that way.
-
-Note that, just like with a declaration, the ``annotation`` follows
-the textual description (if present) and comes before the ``;`` that
-ends the equation.
+In declarations and equations, the ``annotation`` is always at the
+very end and comes immediately before the ``;``.
 
 Inheritance Annotations
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -114,14 +110,14 @@ The syntax of an annotation is the same syntax used for
 :ref:`modifications`.  This means the annotation will include either
 an assignment to a variable in the annotation, *e.g.,*
 
-.. code-block:
+.. code-block:: modelica
 
     annotation(Evaluate=true);
 
 or it will include a modification to something **inside** a variable in
 the annotation, *e.g.,*
 
-.. code-block:
+.. code-block:: modelica
 
     annotation(experiment(StartTime=0,StopTime=8));
 
@@ -133,7 +129,7 @@ Annotations were designed to allow model developers to attach
 associate a part number with a given model definition, they might
 introduce a model annotation like this:
 
-.. code-block:
+.. code-block:: modelica
 
     annotation(PartNumber="FF78-E4B879");
 
@@ -149,7 +145,7 @@ Imagine a user wanted to specify **both** a part number and an
 experiment annotation.  Then they might end up with an annotation like
 this one:
 
-.. code-block:
+.. code-block:: modelica
 
     annotation(PartNumber="FF78-E4B879",
                experiment(StartTime=0,StopTime=8));
@@ -158,7 +154,11 @@ Note how these two pieces of information can exist side by side.  One
 way to think about annotations is to visualize them as a tree like
 this:
 
-.. todo:: Add a figure here of a tree structure
+  * ``PartNumber="FF78-E4B879"``
+  * ``experiment``
+
+    * ``StartTime=0``
+    * ``StopTime=8``
 
 Namespaces
 ^^^^^^^^^^
@@ -171,7 +171,7 @@ For example, a better approach for including the part number
 would be to enclose it in a variable that is more likely to be unique
 to your company or application, *e.g.,*:
 
-.. code-block:
+.. code-block:: modelica
 
     annotation(XogenyIndustries(PartNumber="FF78-E4B879"),
                experiment(StartTime=0,StopTime=8));
@@ -182,7 +182,7 @@ organization came along and wanted to associate a different part
 number with the same model, they could do that by establishing their
 own separate hierarchy in the annotation, *e.g.,*:
 
-.. code-block:
+.. code-block:: modelica
 
     annotation(XogenyIndustries(PartNumber="FF78-E4B879"),
                AcmeEquipment(PartNumber="A23335-992"),
@@ -193,7 +193,7 @@ annotations (*e.g.,* in the Modelica Standard Library).  By
 convention, tool vendors use names that are prefixed by two
 underscores, *e.g.,*
 
-.. code-block:
+.. code-block:: modelica
 
     annotation(XogenyIndustries(PartNumber="FF78-E4B879"),
                __ModelicateTechnologies(enableCoolFeature10=true),
@@ -350,4 +350,4 @@ The ``HideResult`` annotation would be used as follows:
 
 .. code-block:: modelica
 
-    parameter Real z "Uninteresting variable" annotation(HideResult=true);
+    Real z "Uninteresting variable" annotation(HideResult=true);

@@ -1,22 +1,23 @@
 .. _one-dimensional-heat-transfer:
 
-One Dimensional Heat Transfer
+One-Dimensional Heat Transfer
 -----------------------------
 
 Our previous discussion on :ref:`state-space` introduced matrices and
 vectors.  The focus was primarily on mathematical aspects of arrays.
 In this section, we will consider how arrays can be used to represent
-something a bit more physical, the one dimensional spatial
+something a bit more physical, the one-dimensional spatial
 distribution of variables.  We'll look at several features in Modelica
 that are related to arrays and how they allow us to compactly express
 behavior involving arrays.
 
 Our problems will center around the a simple heat transfer problem.
-Consider a one dimensional rod like the one shown below:
+Consider a one-dimensional rod like the one shown below:
 
-.. todo::
-
-   Add a figure of a discretized 1D rod
+.. image:: /_static/img/bar.*
+   :width: 50%
+   :align: center
+   :alt: Discretization of a one-dimensional bar
 
 Deriving Equations
 ^^^^^^^^^^^^^^^^^^
@@ -39,7 +40,7 @@ the mass as:
     m_i = \rho V_i
 
 where :math:`\rho` is the material density and :math:`V_i` is the
-volume of the :math:`i^{th}` section.  Finally, we can expression the
+volume of the :math:`i^{th}` section.  Finally, we can express the
 volume of the :math:`i^{th}` section as:
 
 .. math::
@@ -153,7 +154,7 @@ following declarations:
    :lines: 25-26
 
 Finally, the only array in this problem is the temperature of each
-section (since this is the only quantity that actually varies along the length of 
+section (since this is the only quantity that actually varies along the length of
 the rod):
 
 .. literalinclude:: /ModelicaByExample/ArrayEquations/HeatTransfer/Rod_ForLoop.mo
@@ -315,7 +316,7 @@ Conclusion
 ^^^^^^^^^^
 
 In this section, we've seen various ways that we can use vector
-variables and vector equations to represent one dimensional heat
+variables and vector equations to represent one-dimensional heat
 transfer.  Of course, this vector related functionality can be used
 for a wide range of different problem types.  The goal of this section
 was to introduce several features to demonstrate the various options

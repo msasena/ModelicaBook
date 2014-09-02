@@ -25,7 +25,7 @@ represents the outputs of the system (*i.e.,* variables that are not
 states, but can ultimately be computed from the values of the states
 and inputs).
 
-There is a particularly interesting special case of these equation
+There is a particularly interesting special case of these equations
 when the functions :math:`\vec{f}` and :math:`\vec{g}` depend linearly
 on :math:`\vec{x}` and :math:`\vec{u}`.  In this case, the equations
 can be rewritten as:
@@ -196,11 +196,11 @@ model as:
 
 This model is very similar to the previous one.  However, in this case,
 instead of putting numbers into our matrices, we've put expressions
-involving other parameters like ``h``, ``m`` and so on.  In this way,
+involving other parameters like ``m``, ``c_p`` and so on.  In this way,
 if those physical parameters are changed, the values for ``A`` and
 ``B`` will change accordingly.
 
-We can take a similar approach in reformulating the our previous
+We can take a similar approach in reformulating our previous
 :ref:`mechanical example <mech-example>` into LTI form:
 
 .. literalinclude:: /ModelicaByExample/ArrayEquations/StateSpace/Examples/RotationalSMD.mo
@@ -226,7 +226,7 @@ about this example is the construction of ``A``.  Mathematically, the
 
 One thing we can note about this construction of :math:`A` is that the
 first two rows might be easier to express as a matrix of zeros and an
-identify matrix.  In other words, it might be simpler to construct the
+identity matrix.  In other words, it might be simpler to construct the
 matrix as a set of sub-matrices, *i.e.,*
 
 .. math::
@@ -267,6 +267,15 @@ this way:
 .. literalinclude:: /ModelicaByExample/ArrayEquations/StateSpace/Examples/RotationalSMD_Concat.mo
    :language: modelica
    :lines: 2-
+
+In the section above we do not include a representation of the
+Lotka-Volterra equations in LTI form.  This is because the
+Lotka-Volterra equations, while being time-invariant, are not linear.
+It is worth pointing out that Modelica does not directly enforce
+either of these properties when using the ``LTI`` model.  So it is
+possible to represent non-linear or time-variant models using this
+approach.  But it would be confusing since the term LTI implies that
+the equations are both linear and time-invariant.
 
 Using Components
 ^^^^^^^^^^^^^^^^

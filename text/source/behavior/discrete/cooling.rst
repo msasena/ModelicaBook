@@ -15,7 +15,7 @@ This revised model is written as follows:
 
 .. literalinclude:: /ModelicaByExample/DiscreteBehavior/CoolingRevisited/NewtonCoolingDynamic.mo
    :language: modelica
-   :emphasize-lines: 21-25
+   :emphasize-lines: 23-27
    :lines: 2-
 
 .. index:: if statement
@@ -52,14 +52,14 @@ start to decrease after half a second.  In studying the dynamic
 response of the temperature itself, we see two distinct phases.  The
 first phase is the initial transient response toward equilibrium (to
 match the ambient temperature).  The second phase is the tracking of
-the ambient temperature as it increases.
+the ambient temperature as it decreases.
 
 Initial Transients
 ^^^^^^^^^^^^^^^^^^
 
 It is worth noting that this is a very common issue in modeling.
 Frequently, you wish to model the systems response to some disturbance
-(like the ambient temperature increase in this case).  However, if you
+(like the ambient temperature decrease in this case).  However, if you
 don't start your system in some kind of equilibrium state, the system
 response will also include some kind of initial transient (like the
 one shown here).  In order to distinguish these two responses clearly,
@@ -76,7 +76,7 @@ system starts in an equilibrium state, *i.e.,*
 
 .. literalinclude:: /ModelicaByExample/DiscreteBehavior/CoolingRevisited/NewtonCoolingSteadyThenDynamic.mo
    :language: modelica
-   :emphasize-lines: 15
+   :emphasize-lines: 17
    :lines: 2-
 
 The only thing we've changed is the initial equation.  Instead of

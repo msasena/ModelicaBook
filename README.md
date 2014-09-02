@@ -2,7 +2,7 @@
 
 ## Location on the Web
 
-This book is currently published at http://beta.book.xogeny.com.  This
+This book is currently published at http://book.xogeny.com.  This
 is an **early access** version that gives people a chance to comment
 on the book before making an "official" release.  The goal is to
 collect sufficient feedback that we can move forward with the
@@ -81,22 +81,28 @@ the complete version of the book, you need to have
 [OpenModelica](https://openmodelica.org/) and a bunch of other tools.
 Unfortunately, I've lost track of exactly what the dependencies are.
 
-Under Ubuntu, I know at least the following packages are required:
+For Ubuntu, the requirements are listed in [requirements.txt](requirements.txt)
+which you can install by doing:
 
-     % sudo apt-get install texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra python-sphinx python-scipy python-matplotlib
-     
+    $ cat requirements.txt | xargs sudo apt-get install
+
+In addition you will need an updated development version of
+[Pygments](http://pygments.org/). The easiest way is to install the updated
+version of Pygments from @dietmarw by doing:
+
+    $ sudo pip install --upgrade https://bitbucket.org/dietmarw/pygments-main/get/default.tar.gz
+
 ### Building
 
 To build the book in HTML, go to `ModelicaBook/text` and use this command:
-     
-     % make 
 
-If that doesn't work for some reason, the following can be used to troubleshoot the problem:     
-     
-     % make specs
-     % make results
-     % make dirhtml
-     % make server
+    $ make
+
+If that doesn't work for some reason, the following can be used to troubleshoot the problem:
+
+    $ make specs
+    $ make results
+    $ make dirhtml
+    $ make server
 
 Other options for `make` can be found by using `make help`
-

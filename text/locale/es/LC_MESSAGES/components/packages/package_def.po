@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modelica by Example 0.2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 17:23-0400\n"
+"POT-Creation-Date: 2014-04-14 10:12-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -226,13 +226,13 @@ msgid ""
 " discussed earlier, but with some resource files added::"
 msgstr ""
 
-#: ../../source/components/packages/package_def.rst:238
+#: ../../source/components/packages/package_def.rst:237
 msgid ""
 "If we have a model that needs the data contained in ``NestedPackageAsDir``, "
 "we can use the following URL to reference it::"
 msgstr ""
 
-#: ../../source/components/packages/package_def.rst:243
+#: ../../source/components/packages/package_def.rst:242
 msgid ""
 "Such a URL starts with ``modelica://``.  This is our way of indicating that "
 "the resource being referenced is with respect to a Modelica model and not, "
@@ -244,13 +244,13 @@ msgid ""
 "used."
 msgstr ""
 
-#: ../../source/components/packages/package_def.rst:252
+#: ../../source/components/packages/package_def.rst:251
 msgid ""
 "As another example, if we wished to reference the ``logo.jpg`` file in the "
 "``Resources`` package, we would use the following URL::"
 msgstr ""
 
-#: ../../source/components/packages/package_def.rst:257
+#: ../../source/components/packages/package_def.rst:256
 msgid ""
 "It is a common convention to store resources related to a library in a "
 "nested package named ``Resources`` (hence the default values for "

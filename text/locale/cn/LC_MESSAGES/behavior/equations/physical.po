@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modelica by Example 0.2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 17:23-0400\n"
+"POT-Creation-Date: 2014-04-14 10:14-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,12 +81,6 @@ msgstr ""
 
 #: ../../source/behavior/equations/physical.rst:58
 msgid "but in Modelica, we write it as:"
-msgstr ""
-
-#: ../../source/behavior/equations/physical.rst:64
-msgid ""
-"Note that this is really no different than the equation we saw in our "
-"``FirstOrder`` model from the :ref:`first-order` example."
 msgstr ""
 
 #: ../../source/behavior/equations/physical.rst:67
@@ -283,4 +277,10 @@ msgstr ""
 
 #: ../../source/behavior/equations/physical.rst:197
 msgid "type"
+msgstr ""
+
+#: ../../source/behavior/equations/physical.rst:64
+msgid ""
+"Note that this is really no different from the equation we saw in our "
+"``FirstOrder`` model from the :ref:`first-order` example."
 msgstr ""

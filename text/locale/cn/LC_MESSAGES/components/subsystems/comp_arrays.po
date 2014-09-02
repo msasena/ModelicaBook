@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Modelica by Example 0.2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 17:23-0400\n"
+"POT-Creation-Date: 2014-04-14 10:14-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,13 +21,6 @@ msgid ""
 " components are useful when the user might want to \"scale\" the number of "
 "components used using a parameter (as we saw in our discussions of both :ref"
 ":`distributed-heat-transfer` and :ref:`harmonic-motion`)."
-msgstr ""
-
-#: ../../source/components/subsystems/comp_arrays.rst:14
-msgid ""
-"Creating an array of components is really no different than creating an "
-"array of scalar variables like we did in our previous discussion on :ref"
-":`vectors-and-arrays`.  As we can see in this example,"
 msgstr ""
 
 #: ../../source/components/subsystems/comp_arrays.rst:22
@@ -86,4 +79,11 @@ msgstr ""
 
 #: ../../source/components/subsystems/comp_arrays.rst:37
 msgid "slicing"
+msgstr ""
+
+#: ../../source/components/subsystems/comp_arrays.rst:14
+msgid ""
+"Creating an array of components is really no different from creating an "
+"array of scalar variables like we did in our previous discussion on :ref"
+":`vectors-and-arrays`.  As we can see in this example,"
 msgstr ""

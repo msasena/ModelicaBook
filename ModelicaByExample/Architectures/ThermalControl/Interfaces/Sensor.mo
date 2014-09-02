@@ -6,7 +6,5 @@ partial model Sensor "Sensor subsystem interface"
   Modelica.Blocks.Interfaces.RealOutput temperature "Measured temperature"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={110,0})));
-  annotation (Diagram(graphics));
 end Sensor;

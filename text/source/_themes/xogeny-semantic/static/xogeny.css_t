@@ -6,20 +6,27 @@
 @import url("basic.css");
 
 /* Give the body a "paper" looking background */
+/* bg.jpg does currently not exist so commenting this
 body {
-    background: url("/_static/bg.jpg") repeat scroll 0 0 #FCFCFC; 
+    background: url("/_static/bg.jpg") repeat scroll 0 0 #FCFCFC;
 }
+*/
 
 /* Nice background for the TOC */
 #toc-sidebar {
-    background: url("/_static/dust.png") repeat scroll 0 0 #FCFCFC; 
+    background: url("/_static/images/dust.png") repeat scroll 0 0 #FCFCFC;
 }
 
 /* Nice font for text */
 body {
-    font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+    font-family: Optima,Domine,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
     font-size: 17px;
     line-height: 1.4em;
+}
+
+/* Add some padding at the bottom */
+body {
+	padding-bottom: 20px;
 }
 
 /* Adjust paragraph spacing */
@@ -75,7 +82,7 @@ pre {
 }
 
 .sponsor {
-  min-width: 400px;	
+  min-width: 400px;
 }
 
 .sponsorinfo {
@@ -111,8 +118,8 @@ pre {
 /* Make headers look "fancy" */
 h1, h2, h3, h4, h5 {
     color: black;
-    font-family: "Warnock Pro","Goudy Old Style","Palatino","Book Antiqua",Georgia,serif;
-    font-style: italic;
+    font-family: Lato, Georgia, sans-serif;
+    font-style: normal;
     font-weight: normal;
 }
 
@@ -169,7 +176,7 @@ div.sphinxsidebar * ul {
     padding-left: 10px;
 }
 
-/* Add a nice box around the side bar */   
+/* Add a nice box around the side bar */
 div .sphinxsidebar {
     border: none;
     background: transparent;
@@ -250,4 +257,3 @@ a.headerlink {
 .admonition-todo {
     background: linear-gradient(to bottom, #febbbb 0%,#fe9090 45%,#ff5c5c 100%);
 }
-

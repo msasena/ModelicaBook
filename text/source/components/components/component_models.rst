@@ -100,8 +100,6 @@ requiring special tools or editors in each case, all of these
 different domains and formalisms can be freely combined in Modelica as
 appropriate.
 
-.. _default-flow:
-
 .. _flow-signs:
 
 Accounting
@@ -162,10 +160,10 @@ compiler, we need to introduce the concept of a *connection set*.  To
 demonstrate what a connection set is, consider the following
 schematic:
 
-.. image:: /ModelicaByExample/Components/Rotational/Examples/SMD.svg
+.. image:: /ModelicaByExample/Components/Rotational/Examples/SMD.*
    :width: 100%
    :align: center
-   :alt: 
+   :alt:
 
 Note that there are 8 connections in this model:
 

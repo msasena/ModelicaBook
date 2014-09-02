@@ -50,7 +50,7 @@ add_simple_plot(plot="SOSIP", vars=sosvars, title="Mechanical System Response")
 
 add_case(["SecondOrderSystemInitParams"], stopTime=5, res="SOSIP1",
          mods={"phi1_init": 1.0})
-add_simple_plot(plot="SOSIP1", vars=sosvars, title="Mechanical Response; phi1(0)=0")
+add_simple_plot(plot="SOSIP1", vars=sosvars, title="Mechanical Response specifying phi1(0)")
 
 ## LotkaVolterra
 lvvars = [Var("x", legend="Prey population"),
@@ -110,10 +110,30 @@ add_simple_plot(plot="Decay5", vars=[Var("x")],
                 title="No Chattering",
                 legloc="upper right")
 
+## Accuracy
+avs = [Var("x", legend="Integrated value"),
+       Var("y", legend="Reference value")]
+#       Var("active", legend="Activation flag")]
+add_case(["WithEvents$"], stopTime=7.0, res="WE", tol=1e-1)
+add_case(["WithEvents$"], stopTime=7.0, res="WEf", tol=1e-1, mods={"freq": 5.0})
+add_case(["WithNoEvents$"], stopTime=7.0, res="WNE", tol=1e-1)
+add_case(["WithNoEvents$"], stopTime=7.0, res="WNEf", tol=1e-1, mods={"freq": 5.0})
+
+add_simple_plot(plot="WE", vars=avs, title="Integration with Events",
+                legloc="upper right")
+
+add_simple_plot(plot="WEf", vars=avs, title="Integration with Events (Higher Frequency)",
+                legloc="upper right")
+
+add_simple_plot(plot="WNE", vars=avs, title="Integration without Events",
+                legloc="upper right")
+
+add_simple_plot(plot="WNEf", vars=avs, title="Integration without Events (Higher Frequency)",
+                legloc="upper right")
 
 ## Switched RLC
-srlc_vvars = [Var("Vs", legend="Source Voltage [V]"),
-              Var("V", legend="Response Voltage [V]")]
+srlc_vvars = [Var("Vs", legend="Source Voltage, Vs [V]"),
+              Var("V", legend="Response Voltage, V [V]")]
 srlc_ivars = [Var("i_R", legend="Resistor Current [A]"),
               Var("i_C", legend="Capacitor Current [A]"),
               Var("i_L", legend="Inductor Current [A]")]
@@ -566,7 +586,7 @@ tcbvars = [Var("sensor.room.T", legend="Room Temperature"),
            Var("controller.feedback.u2", legend="Desired Temperature")]
 
 tcevars = [Var("sensor.room.T", legend="Room Temperature (sensor.room.T)"),
-           Var("controller.bus.temperature", legend="Measured Temperature (controller.bus.temp"),
+           Var("controller.bus.temperature", legend="Measured Temperature (controller.bus.temp)"),
            Var("controller.feedback.u2", legend="Desired Temperature")]
 
 add_case(["ThermalControl", "BaseModel"], stopTime=50, res="TCB", tol=1e-3)
@@ -580,7 +600,7 @@ add_simple_plot(plot="TCE", vars=tcevars, legloc="lower right",
                 title="Response using PI controller in expandable architecture")
 
 tcebbvars = [Var("sensor.room.T", legend="Room Temperature (sensor.room.T)"),
-           Var("controller.bus.temperature", legend="Measured Temperature (controller.bus.temp"),
+           Var("controller.bus.temperature", legend="Measured Temperature (controller.bus.temp)"),
            Var("controller.setpoint_signal.y", legend="Desired Temperature")]
 
 add_case(["ThermalControl", "OnOffVariant"], stopTime=50, res="TCE_BB", tol=1e-3)

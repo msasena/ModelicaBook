@@ -3,7 +3,6 @@ demosite
 *~
 *.pyc
 *.mat
-*.txt
 *.lib
 *.exe
 dsmodel.c
@@ -11,12 +10,13 @@ dsmodel.c
 request
 status
 coverage_report.html
-source/ModelicaByExample/*.mat
-source/ModelicaByExample/*.txt
-source/ModelicaByExample/*.lib
-source/ModelicaByExample/*.exe
-source/ModelicaByExample/*.c
-source/ModelicaByExample/*.exp
+ModelicaByExample/*.mat
+ModelicaByExample/*.txt
+ModelicaByExample/*.lib
+ModelicaByExample/*.exe
+ModelicaByExample/*.c
+ModelicaByExample/*.exp
+ModelicaByExample/**/*.pdf
 source/Examples/*.mat
 source/Examples/*.txt
 source/Examples/*.lib

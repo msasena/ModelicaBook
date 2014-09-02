@@ -1,9 +1,5 @@
-.. raw:: latex
-
-   \setcounter{secnumdepth}{-1}
-
 Acknowledgments
-***************
+===============
 
 This book is the culmination of so many lectures, books, discussions,
 conferences, *etc.* that it is impossible to provide a full accounting
@@ -12,7 +8,7 @@ there are people I've failed to mention here and I apologize in
 advance to anyone who feels they've been overlooked.
 
 Technical
-=========
+---------
 
 On the subject of Modelica, the primary acknowledgment has to be to
 Hilding Elmqvist for not only having the technical vision to recognize
@@ -49,7 +45,7 @@ participated in the development of the Modelica Language and the
 Modelica Standard Library.
 
 Personal
-========
+--------
 
 On a personal note, I am forever indebted to my mother, my father, my
 wife, my kids and my in-laws for their endless support of my passion
@@ -89,7 +85,7 @@ Sandrine Loembe for all the good times during my excellent year in
 Paris.
 
 Contributors
-============
+------------
 
 This project was really an experiment to see if the Kickstarter
 approach to publishing could be applied to a niche technical field
@@ -99,6 +95,7 @@ I'd like to thank the backers of the Kickstarter project.  In
 particular, I'd like the thank the following people for their
 exceptionally generous contributions:
 
+    * Hilding Elmqvist
     * Robert Norris
     * Matthis Thorade
     * Henning Francke
@@ -168,7 +165,7 @@ writing this book to make sure that the layout and graphical design
 lived up to sponsors' expectations.
 
 Tools
-=====
+-----
 
 Building a book like this requires a lot of different tools.  My
 productivity was amplified enormously by the use of these tools.
@@ -180,7 +177,7 @@ formats.
 
 In creating this book, I needed a way to test the models that appear
 in the book, generate simulation results for plots and generated
-Javascript code that allows the browser integrated simulation
+JavaScript code that allows the browser integrated simulation
 capabilities in the HTML book.  OpenModelica supported all of these
 use cases.  But beyond that, I owe a big "Thank You" to Martin Sjölund
 and the OpenModelica team for quickly responding to various issues I
@@ -191,7 +188,7 @@ me out.
 The browser integrated simulation capabilities in the HTML version of
 the book are only possible because of a tool called Emscripten which
 allows ordinary code in languages like C and C++ to be cross-compiled
-(via LLVM) into Javascript.  Although I knew this was possible, I
+(via LLVM) into JavaScript.  Although I knew this was possible, I
 didn't really think this avenue was viable until I saw `the work of Tom Short <https://github.com/tshort/openmodelica-javascript>`_
 integrating OpenModelica and Emscripten.  The browser integrated
 simulation capabilities were greatly enabled by his work in this area.
@@ -222,7 +219,7 @@ Much of this book was written on a MacBook Air.  My very first
 computer was an Apple //e.  But since that time, I've worked mainly
 with PCs and Unix workstations.  Most recently, I've done a great deal
 of development on Linux machines.  I always dismissed using Macs
-because I was convinced they could support the kind of command-line
+because I was convinced they couldn't support the kind of command-line
 oriented development work I typically do.  I could not have been more
 wrong.  The eco-systems for MacOSX is almost identical to the one I
 was used to in the Linux world.  I am able to seamlessly transition
@@ -231,14 +228,10 @@ adjustments.  The power and portability of the MacBook Air gave my
 entire work process a big boost.
 
 Developing this book involved a lot of testing and debugging of HTML
-layout, styling and embedded Javascript.  Most of this work was done
+layout, styling and embedded JavaScript.  Most of this work was done
 using Firefox but I've also used Chrome from time to time as well.
 I'd like to thank both the Mozilla Foundation and Google for creating
 such wonderful, standards compliant browsers.
 
 The style of the book owes a fair amount to the `Semantic UI
 <http://www.semantic-ui.com>`_ CSS framework.
-
-.. raw:: latex
-
-   \setcounter{secnumdepth}{2}

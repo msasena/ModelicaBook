@@ -116,7 +116,7 @@ like this:
     within RootPackage;
     package NestedPackageAsFile
       // The following can be stored here including:
-      //  * contants
+      //  * constants
       //  * nested definitions
       //  * annotations
     end NestedPackageAsFile;
@@ -164,7 +164,7 @@ should come before ``NestedPackageAsDir``.
 Versioning
 ^^^^^^^^^^
 
-.. todo: If we don't add an advanced topic on building libraries that
+.. todo:: If we don't add an advanced topic on building libraries that
    discusses versioning, then we should add it here.  It should
    include a discussion of the uses and version annotations as well
    as the ability to include version numbers in the names of files and
@@ -232,7 +232,6 @@ discussed earlier, but with some resource files added::
         package.order          # Specifies an ordering for this	package
         datafile.mat           # Data specific to this package
       /Resources               # Resources are stored here by convention
-        package.mo             # Indicates Resources is a package
         logo.jpg               # An image file
 
 If we have a model that needs the data contained in
