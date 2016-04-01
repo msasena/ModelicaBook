@@ -71,8 +71,8 @@ argument.  The reason is related to the fact that this is a state
 event.  Remember, the time at which a *time event* will occur is known
 in advance.  But this is not the case for a state event.  In order to
 determine when the event will occur, we have to search the solution
-trajectory to see when the condition (*e.g.,* ``x>=0`` becomes
-false).
+trajectory to see when the condition (*e.g.,* ``x>=0``) becomes
+false.
 
 The important thing to understand is that **until the event occurs,
 the behavior doesn't change**.  In other words, the two sides of this
